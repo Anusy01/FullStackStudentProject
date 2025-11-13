@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="studentApp">
+<head>
+    <title>Student Details Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="StudentController">
+<div class="container">
+    <h2>Student Details Project</h2>
+    
+    <!-- Add Student -->
+    <div class="section">
+        <h3>Add Student Details</h3>
+        <input type="number" ng-model="student.id" placeholder="ID" required>
+        <input type="text" ng-model="student.name" placeholder="Name" required>
+        <input type="number" ng-model="student.age" placeholder="Age" required>
+        <button ng-click="addStudent()">Add</button>
+    </div>
+    
+    <!-- Update Student -->
+    <div class="section">
+        <h3>Update Student Details by ID</h3>
+        <input type="number" ng-model="updateId" placeholder="ID" required>
+        <input type="text" ng-model="updateName" placeholder="Updated Name">
+        <input type="number" ng-model="updateAge" placeholder="Updated Age">
+        <button ng-click="updateStudent()">Update</button>
+    </div>
+    
+    <!-- Delete Student -->
+    <div class="section">
+        <h3>Delete Student Details by ID</h3>
+        <input type="number" ng-model="deleteId" placeholder="ID" required>
+        <button ng-click="deleteStudent()">Delete</button>
+    </div>
+    
+    <!-- Fetch All Students -->
+    <div class="section">
+        <h3>All Students</h3>
+        <button ng-click="fetchStudents()">Fetch & Display All Students</button>
+        <table>
+            <tr>
+                <th>ID</th><th>Name</th><th>Age</th>
+            </tr>
+            <tr ng-repeat="stud in students">
+                <td>{{stud.id}}</td>
+                <td>{{stud.name}}</td>
+                <td>{{stud.age}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
